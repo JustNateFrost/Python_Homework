@@ -68,7 +68,9 @@ def test_delete_symbol_positive(string, symbol, result):
         ("1998year", "1998year"),
         ("", ""),
         ("   ", "   "),
-        ("Rose", "Rose")
+        ("Rose", "Rose"),
+        ("$dollar", "$dollar"),
+        (None, None)
     ])
 
 def test_capitalize_negative(string, result):
@@ -81,7 +83,10 @@ def test_capitalize_negative(string, result):
         (". Drums", ". Drums"),
         ("b u s i n e s s", "b u s i n e s s"),
         ("George ", "George "),
-        ("", "")
+        ("", ""),
+        ("\tTabs", "Tabs"),
+        ("\nNewline", "Newline"),
+        (None, None)
     ])
 def test_trim_negative(string, result):
     assert string_utils.trim(string) == result
@@ -95,7 +100,10 @@ def test_trim_negative(string, result):
         ("wolf", "v", False),
         ("Mary Alice", "-", False),
         ("", "a", False),
-        ("tiger", "abc", False)
+        ("tiger", "abc", False),
+        (None, "j", False),
+        ("Kangaroo", None, False),
+        ("Deer", "", False)
     ])
 
 def test_contains_negative(string, symbol, result):
@@ -110,7 +118,9 @@ def test_contains_negative(string, symbol, result):
         ("", "k", ""),
         ("2012", "3", "2012"),
         ("Polar bear", "-", "Polar bear"),
-        ("Frog", "", "Frog")
+        ("Frog", "", "Frog"),
+        (None, "w", None),
+        ("cheetah", None, "cheetah")
     ])
 
 def test_delete_symbol_negative(string, symbol, result):
