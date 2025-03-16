@@ -1,5 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+
+
 driver = webdriver.Chrome()
 driver.get("http://the-internet.herokuapp.com/add_remove_elements/")
 
