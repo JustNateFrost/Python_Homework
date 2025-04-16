@@ -12,7 +12,6 @@ def test_get_max_subject():
         "SELECT max(subject_id) FROM subject"
         )
     assert db.execute(sql_statement).fetchone()[0] == 16
-    db.execute(sql_statement)
 
 
 def test_subject_title():
@@ -20,7 +19,6 @@ def test_subject_title():
         "SELECT subject_id FROM subject WHERE subject_title = 'Art'"
         )
     assert db.execute(sql_statement).rowcount == 0
-    db.execute(sql_statement)
 
 
 def test_insert_into_subject():
@@ -74,4 +72,3 @@ def test_delete_subject():
         "SELECT subject_title FROM subject WHERE subject_id = 17"
     )
     assert db.execute(sql_statement2).rowcount == 0
-    db.execute(sql_statement)
